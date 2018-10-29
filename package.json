@@ -1,0 +1,29 @@
+{
+  "name": "electronsandbox",
+  "version": "1.0.0",
+  "description": "My electron sandbox application",
+  "main": "main.ts",
+  "scripts": {
+    "start": "npm run build && electron ./dist/main.js",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "keywords": [
+    "electron",
+    "github",
+    "javascript",
+    "html",
+    "html5",
+    "css",
+    "node.js",
+    "node"
+  ],
+  "author": "Darrien Singleton",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^3.0.6",
+    "path": "^0.12.7",
+    "spectron": "^5.0.0"
+  }
+}
