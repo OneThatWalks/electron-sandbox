@@ -1,5 +1,5 @@
 {
-  "name": "electronsandbox",
+  "name": "electron-sandbox",
   "version": "1.0.0",
   "description": "My electron sandbox application",
   "main": "main.ts",
