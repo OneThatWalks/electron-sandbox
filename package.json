@@ -7,7 +7,8 @@
     "start": "npm run build && electron ./dist/main.js",
     "build": "tsc",
     "watch": "tsc -w",
-    "lint": "tslint -c tslint.json -p tsconfig.json"
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "gulp": "gulp compile"
   },
   "keywords": [
     "electron",
@@ -25,8 +26,17 @@
   "devDependencies": {
     "@types/jquery": "^3.3.22",
     "electron": "^3.0.6",
+    "gulp": "^4.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-typescript": "^5.0.0-alpha.3",
     "jquery": "^3.3.1",
     "path": "^0.12.7",
-    "spectron": "^5.0.0"
-  }
+    "spectron": "^5.0.0",
+    "typescript": "^3.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OneThatWalks/electron-sandbox"
+  },
+  "readme": "README.md"
 }

@@ -24,4 +24,4 @@ In the future, tests will be implemented and added to the repository
 
 ## License
 
-[LIL](LICENSE)
+Licensed under the [MIT](LICENSE) License.
