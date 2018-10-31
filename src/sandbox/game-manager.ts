@@ -21,9 +21,9 @@ export class GameManager implements IGameManager {
 
     _createElements(): void {
         if (!this._div && $('#gameManager').length === 0) {
-            this._div = $('<div id=\"gameManager\">GameManager: </div>');
+            this._div = $('<div id=\"gameManager\ class=\"row\">GameManager: </div>');
             this._informationSpan = $('<span id=\"gameManagerInformation\"></span>');
-            this._updateCharacterButton = $('<button id=\"gameManagerCharacterButton\">Update Character(s)</button>');
+            this._updateCharacterButton = $('<button id=\"gameManagerCharacterButton\" class=\"btn btn-default\">Update Character(s)</button>');
             this._div.append(this._informationSpan);
             this._div.append(this._updateCharacterButton);
             $('body').append(this._div);
@@ -50,7 +50,7 @@ export class GameManager implements IGameManager {
             spanForCharacter = $(`#characterInfo_${characterId}`);
         }
         const characterLocation = character.location();
-        spanForCharacter.html(`Name: ${character.name()} Location: (${characterLocation.latitude},${characterLocation.longitude}) Heading: ${characterLocation.heading} Health: ${character.health()}`);
+        spanForCharacter.html(`<br />Name: ${character.name()}<br /> Location: (${characterLocation.latitude},${characterLocation.longitude})<br /> Heading: ${characterLocation.heading}<br /> Health: ${character.health()}`);
     }
 
     update(): void {

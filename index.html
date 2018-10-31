@@ -2,20 +2,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Electron Sandbox</title>
+    <link rel="stylesheet" href="./vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="./vendor/bootstrap.bundle.min.js">
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Electron Sandbox</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>
+
+    <div id="container" class="container">
+
+    </div>
   </body>
-
-  <div id="container">
-
-  </div>
-
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')

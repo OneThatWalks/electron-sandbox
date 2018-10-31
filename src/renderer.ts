@@ -18,14 +18,22 @@ $(document).ready(() => {
 
 
 function init(selector: JQuery): void {
-    startButton = $('<button id=\"startButton\" type=\"button\">Start</button>');
-    stopButton = $('<button id=\"stopButton\" type=\"button\">Stop</button>');
+    const row1 = $('<div class=\"row\"></div>');
+
+    startButton = $('<button id=\"startButton\" type=\"button\" class=\"btn btn-default\">Start</button>');
+    stopButton = $('<button id=\"stopButton\" type=\"button\" class=\"btn btn-default\">Stop</button>');
+
+    row1.append(startButton);
+    row1.append(stopButton);
+
+    const row2 = $('<div class=\"row\"></div>');
 
     canvas = $('<canvas id=\"myCanvas\" width=\"320\" height=\"240\" style=\"border: 1px solid #000000\"></canvas>'); // todo: move this to a class
 
-    selector.append(startButton);
-    selector.append(stopButton);
-    selector.append(canvas);
+    row2.append(canvas);
+
+    selector.append(row1);
+    selector.append(row2);
 
     stopButton.on('click', async () => {
         if (game) {
