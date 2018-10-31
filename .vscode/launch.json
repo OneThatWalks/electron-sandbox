@@ -28,7 +28,11 @@
             "port": 9222,
             "webRoot": "${workspaceFolder}/dist",
             "timeout": 30000,
-            "sourceMaps": true
+            "sourceMaps": true,
+            "targetTypes": [
+                "page",
+                "webview"
+            ]
         }
     ],
     "compounds": [

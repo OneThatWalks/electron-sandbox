@@ -11,7 +11,7 @@ function createWindow(): void {
     win.loadFile(path.join(__dirname, 'index.html'));
 
     // open the DevTools.
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
 
     // emitted when the window is closed.
     win.on('closed', () => {
