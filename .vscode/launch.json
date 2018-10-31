@@ -17,7 +17,7 @@
                 "--remote-debugging-port=9222",
                 "${workspaceFolder}/dist/main.js"
             ],
-            "preLaunchTask": "compile",
+            "preLaunchTask": "default",
             "sourceMaps": true,
             "protocol": "inspector"
         },

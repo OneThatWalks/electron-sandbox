@@ -10,9 +10,9 @@
         },
         {
             "type": "gulp",
-            "task": "compile",
+            "task": "default",
             "problemMatcher": [],
-            "label": "compile"
+            "label": "default"
         }
     ]
 }

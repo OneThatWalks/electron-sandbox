@@ -1,25 +1,35 @@
 'use strict';
 
 const gulp = require('gulp');
-const path = require('path');
-const gulpTypescript = require ('gulp-typescript');
+const gulpTypescript = require('gulp-typescript');
 const gulpSourcemaps = require('gulp-sourcemaps');
+const del = require('del')
 
 // TODO: externalize
 
 
 const tsProject = gulpTypescript.createProject('./tsconfig.json');
 
-gulp.task('compile', function() {
+gulp.task('compile', function () {
     return tsProject.src()
-    .pipe(gulpSourcemaps.init())
-    .pipe(tsProject())
-    .pipe(gulpSourcemaps.write('.', {
-        sourceRoot: './',
-        includeContent: false
-    }))
-    .pipe(gulp.dest('dist'));
+        .pipe(gulpSourcemaps.init({loadMaps: true}))
+        .pipe(tsProject())
+        .pipe(gulpSourcemaps.write())
+        .pipe(gulp.dest('dist'));
 });
+
+gulp.task('clean', function () {
+    return del([
+        "./dist/**/*"
+    ])
+});
+
+gulp.task('copy', function () {
+    return gulp.src('./index.html')
+        .pipe(gulp.dest('./dist/'));
+})
+
+gulp.task('default', gulp.series('clean', 'compile', 'copy'));
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('Unhandled rejection at: Promise', p, 'reason:', reason);
