@@ -1,4 +1,7 @@
 {
+    "game": {
+        "delta": 50
+    },
     "controls": {
         "upHeading": 0,
         "downHeading": 180,
