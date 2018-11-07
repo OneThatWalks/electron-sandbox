@@ -7,7 +7,7 @@ import { delay } from '../util/util';
 
 
 /**
- * Creates a 'Game' which is meant to be a singleton
+ * The 'Game' class, hold all logic related to game
  *
  * @export
  * @class Game
@@ -17,6 +17,7 @@ export class Game implements IGame {
 
     private _running: boolean;
     private _delta: number;
+    private _settings: any;
     private _manager: IGameManager;
     private _renderer: IGameRenderer;
 
@@ -26,12 +27,19 @@ export class Game implements IGame {
     constructor(container: JQuery, settings: any, delta: number = 500) {
         this._running = false;
         this._delta = settings.game.delta !== undefined ? settings.game.delta : delta;
-        this._manager = new GameManager();
-        this._renderer = new GameRenderer();
+        this._settings = settings;
+        this._manager = new GameManager(settings);
+        this._renderer = new GameRenderer(container, settings);
 
         this._registerEvents();
     }
 
+
+    /**
+     * Registers events for Game
+     *
+     * @memberof Game
+     */
     _registerEvents() {
         window.onkeyup = (event) => {
             this._processInput(event);
@@ -42,39 +50,36 @@ export class Game implements IGame {
         }
     }
 
+
+    /**
+     * Processes input from the event listeners
+     *
+     * @param {KeyboardEvent} event
+     * @memberof Game
+     */
     _processInput(event: KeyboardEvent) {
         console.log(event);
 
         const keyCode = event.key;
     }
 
-    /**
-     * Starts game
-     */
     async start() {
         console.log('Starting loop.');
         this._running = true;
 
         while (this._running) {
-            this.update();
-            this.draw();
+            this._update();
+            this._draw();
             await delay(this._delta);
         }
 
         console.log('Loop terminated.');
     }
 
-    /**
-     * Stops game
-     */
     stop(): void {
         this._running = false;
     }
 
-    /**
-     * Sets the game update delta
-     * @param delta the update delta in ms
-     */
     setDelta(delta: number): void {
         this._delta = delta;
     }
@@ -82,14 +87,14 @@ export class Game implements IGame {
     /**
      * The update for game
      */
-    update(): void {
+    _update(): void {
         this._manager.update();
     }
 
     /**
      * The draw for game
      */
-    draw(): void {
+    _draw(): void {
         this._renderer.draw();
     }
 
