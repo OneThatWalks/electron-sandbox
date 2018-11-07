@@ -2,9 +2,12 @@ import * as $ from 'jquery';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import { IGame } from './interfaces/igame';
 import { Game } from './sandbox/game';
+import * as fs from 'fs';
+import * as path from 'path';
 
 
 let container,
+    settings: any,
     canvas: JQuery,
     startButton: JQuery,
     stopButton: JQuery,
@@ -13,10 +16,23 @@ let container,
 $(document).ready(() => {
     container = $('#container');
 
+    readSettings();
+
     if (container) {
         init(container);
     }
 });
+
+async function readSettings() {
+    fs.readFile(path.join(__dirname, 'assets', 'settings.json'), 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+        };
+        settings = JSON.parse(data);
+
+        console.log(settings);
+    });
+}
 
 
 function init(selector: JQuery): void {

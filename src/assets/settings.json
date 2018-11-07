@@ -1,0 +1,16 @@
+{
+    "controls": {
+        "upHeading": 0,
+        "downHeading": 180,
+        "leftHeading": 270,
+        "rightHeading": 90,
+        "up": "W",
+        "down": "S",
+        "left": "A",
+        "right": "D"
+    },
+    "map": {
+        "mapWidth": 50,
+        "mapHeight": 50
+    }
+}

@@ -28,7 +28,12 @@ gulp.task('clean', function () {
 gulp.task('copy', function () {
     return gulp.src('./src/index.html')
         .pipe(gulp.dest('./dist/'));
-})
+});
+
+gulp.task('assets', function () {
+    return gulp.src('./src/assets/**/*')
+        .pipe(gulp.dest('./dist/assets'));
+});
 
 gulp.task('sass', function () {
     return gulp.src('./src/sass/**/*.scss')
@@ -36,7 +41,7 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('./dist/css'))
 });
 
-gulp.task('default', gulp.series('clean', 'compile', 'copy', 'sass'));
+gulp.task('default', gulp.series('clean', 'compile', 'copy', 'sass', 'assets'));
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('Unhandled rejection at: Promise', p, 'reason:', reason);
