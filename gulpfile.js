@@ -30,21 +30,13 @@ gulp.task('copy', function () {
         .pipe(gulp.dest('./dist/'));
 })
 
-gulp.task('bootstrap', function () {
-    return gulp.src([
-        './node_modules/bootstrap/dist/css/bootstrap.min.css',
-        './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
-    ])
-        .pipe(gulp.dest('./dist/vendor/'));
-});
-
 gulp.task('sass', function () {
-    return gulp.src('./sass/**/*.scss')
+    return gulp.src('./src/sass/**/*.scss')
         .pipe(gulpSass().on('error', gulpSass.logError))
         .pipe(gulp.dest('./dist/css'))
 });
 
-gulp.task('default', gulp.series('clean', 'compile', 'copy', 'sass', 'bootstrap'));
+gulp.task('default', gulp.series('clean', 'compile', 'copy', 'sass'));
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('Unhandled rejection at: Promise', p, 'reason:', reason);
