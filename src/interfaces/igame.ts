@@ -22,4 +22,13 @@ export interface IGame {
      * @memberof IGame
      */
     setDelta(delta: number): void;
+
+
+    /**
+     * Gets the game state
+     *
+     * @returns {boolean}
+     * @memberof IGame
+     */
+    running(): boolean; 
 }

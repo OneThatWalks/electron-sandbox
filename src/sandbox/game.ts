@@ -29,7 +29,7 @@ export class Game implements IGame {
         this._delta = settings.game.delta !== undefined ? settings.game.delta : delta;
         this._settings = settings;
         this._manager = new GameManager(settings);
-        this._renderer = new GameRenderer(container, settings);
+        this._renderer = new GameRenderer(container, settings, this);
 
         this._registerEvents();
     }
@@ -58,13 +58,13 @@ export class Game implements IGame {
      * @memberof Game
      */
     _processInput(event: KeyboardEvent) {
-        console.log(event);
+        if (this._settings.verboseLogging) console.log(event);
 
         const keyCode = event.key;
     }
 
-    async start() {
-        console.log('Starting loop.');
+    public async start() {
+        if (this._settings.verboseLogging) console.log('Starting loop.');
         this._running = true;
 
         while (this._running) {
@@ -73,15 +73,19 @@ export class Game implements IGame {
             await delay(this._delta);
         }
 
-        console.log('Loop terminated.');
+        if (this._settings.verboseLogging) console.log('Loop terminated.');
     }
 
-    stop(): void {
+    public stop(): void {
         this._running = false;
     }
 
-    setDelta(delta: number): void {
+    public setDelta(delta: number): void {
         this._delta = delta;
+    }
+
+    public running(): boolean {
+        return this._running;
     }
 
     /**

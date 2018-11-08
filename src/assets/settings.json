@@ -1,4 +1,5 @@
 {
+    "verboseLogging": true,
     "game": {
         "delta": 50
     },
@@ -14,6 +15,7 @@
     },
     "map": {
         "mapWidth": 50,
-        "mapHeight": 50
+        "mapHeight": 50,
+        "tileBorderColor": "black"
     }
 }
