@@ -4,11 +4,11 @@
   "description": "My electron sandbox application",
   "main": "main.ts",
   "scripts": {
-    "start": "npm run build && electron ./dist/main.js",
+    "start": "npm run gulp && electron ./dist/main.js",
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "gulp": "gulp compile"
+    "gulp": "gulp default"
   },
   "keywords": [
     "electron",
