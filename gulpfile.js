@@ -38,7 +38,7 @@ gulp.task('assets', function() {
 gulp.task('sass', function () {
     return gulp.src('./src/**/*.scss')
         .pipe(gulpSass().on('error', gulpSass.logError))
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./dist/'))
 });
 
 gulp.task('default', gulp.series('clean', 'compile', 'copy', 'sass', 'assets'));
