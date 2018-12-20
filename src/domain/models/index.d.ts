@@ -1,8 +1,8 @@
-import { EntityBase } from "../interfaces";
-
 // Type definitions for electron-sandbox alpha
 // Project: electron-sandbox
 // Definitions by: Darrien Singleton
+
+import { EntityBase } from "../interfaces";
 
 export as namespace Models;
 

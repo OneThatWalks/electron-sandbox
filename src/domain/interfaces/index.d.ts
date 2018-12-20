@@ -1,8 +1,8 @@
-import { Sprint, User, WorkItem } from "../models";
-
 // Type definitions for electron-sandbox alpha
 // Project: electron-sandbox
 // Definitions by: Darrien Singleton
+
+import { Sprint, User, WorkItem } from "../models";
 
 export as namespace Interfaces;
 
