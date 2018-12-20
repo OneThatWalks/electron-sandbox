@@ -1,4 +1,4 @@
-import { Sprint } from "../models";
+import { Sprint, User, WorkItem } from "../models";
 
 // Type definitions for electron-sandbox alpha
 // Project: electron-sandbox
@@ -85,4 +85,59 @@ export interface ISprintService {
     editSprint(sprint: Sprint): void;
 }
 
-//TODO: Work item
+export interface IWorkItemService {
+
+    /**
+     * Creates a new work item
+     * 
+     * @param name Name of the work item
+     * @param type Type of the work item
+     */
+    createWorkItem(name: string, type: number): WorkItem;
+
+    /**
+     * Updates the rest of a work item after creation
+     * 
+     * @param workItemId Id of the work item
+     * @param details Details of the wrk item to update
+     */
+    updateWorkItem(workItemId: number, details: Partial<WorkItem>): void;
+
+    /**
+     * Assigns user(s) to a work item
+     * 
+     * @param workItemId work item to assign
+     * @param assignees assignee(s) for the item
+     */
+    assignWorkItem(workItemId: number, assignees: User | Array<User>): void;
+
+    /**
+     * Updates the work items state only
+     * 
+     * @param workItemId Work item identifier
+     * @param workItemState new state for the work item
+     */
+    updateWorkItemState(workItemId: number, workItemState: number): void;
+}
+
+export interface IUserService {
+
+    /**
+     * Registers a new user
+     * 
+     * @param email Email address
+     * @param first First name
+     * @param last Last name
+     */
+    registerUser(email: string, first: string, last: string): User;
+
+    /**
+     * Updates an existing user
+     * 
+     * @param userId user identifier
+     * @param email Email address
+     * @param first First name
+     * @param last Last name
+     */
+    updateUser(userId: number, email: string, first: string, last: string): void;
+}
