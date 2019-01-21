@@ -9,10 +9,14 @@
             "problemMatcher": []
         },
         {
-            "type": "gulp",
-            "task": "default",
+            "type": "npm",
+            "script": "webpack",
             "problemMatcher": [],
-            "label": "default"
+            "label": "default",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

@@ -19,7 +19,8 @@
             ],
             "preLaunchTask": "default",
             "sourceMaps": true,
-            "protocol": "inspector"
+            "protocol": "inspector",
+            "program": "${workspaceFolder}/dist/main.js"
         },
         {
             "name": "Attach to Rendering Process",
